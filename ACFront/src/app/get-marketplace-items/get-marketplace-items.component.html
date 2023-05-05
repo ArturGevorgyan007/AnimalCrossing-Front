@@ -1,0 +1,35 @@
+<head>
+</head>
+ <body>
+<h1>Show Marketplace Items</h1>
+
+<label for="itemname">Item Name<span class="required">*</span></label>
+<input id ="itemsearch" type="text" name="itemname">
+<button (click)="SearchClicked($event)">Search An Item</button>
+
+<table *ngIf="items.length > 0">
+    <thead>
+        <th>Listing ID</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Photo</th>
+        <th>Seller</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of items">
+            <td>{{i.ListingId}}</td>
+            <td>{{i.ItemName}}</td>
+            <td>{{i.Quantity}}</td>
+            <td>{{i.UnitPrice}}</td>
+            <td><img src={{i.Url}}></td>
+            <td>{{i.SellerId}}</td>
+            <td *ngIf="i.SellerId != userIdInt"><button id={{i.Id}} (click)="BuyItem($event)">Buy</button></td>
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="items.length === 0">
+    No items to display... :(
+</p>
+</body>

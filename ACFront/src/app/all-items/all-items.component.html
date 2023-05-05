@@ -1,0 +1,24 @@
+<body>
+    <h1>Get a random item for 200 <a data-tooltip="click me"> <img src="../../assets/bellBag.png" alt="moneybag" style="max-width: 3rem; max-height: 10rem;" role="button" (click)="buyrandom()"></a><span *ngIf = "show"> you got {{randitem}}</span></h1> 
+
+
+<form (submit)="processForm($event)" [formGroup]="AllItemForm">
+    <input type="submit" role="button" value="You can click me to see all the AC household items">
+</form>
+<table *ngIf="items1.length > 0">
+    <thead>
+        <th>Name</th>
+        <th>Photo</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of items1">
+            <td>{{i.iname}}</td>
+            <td><img src={{i.iurl}} height="100" width="100"></td>
+        </tr>
+        <p *ngIf="items1.length === 0 && clicked">
+            No items to display... :(
+        </p>
+    </tbody>
+</table>
+
+</body>
