@@ -16,7 +16,7 @@ import { BehaviorSubject } from 'rxjs';
 export class BackApiServiceService {
 
   // apiRoot : string = 'http://localhost:5144';
-  apiRoot : string = "animalcrossingapi.azurewebsites.net";
+  apiRoot : string = "https://animalcrossingapi.azurewebsites.net";
   apiRoot1 : string = 'https://apiback.azurewebsites.net/user-inventory/userId?userId=5';
   apiRoot2 : string = 'https://apiback.azurewebsites.net/login';
   username : string = "";

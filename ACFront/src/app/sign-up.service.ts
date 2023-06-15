@@ -10,7 +10,7 @@ export class SignUpService {
 
   // root1  : string = 'https://apiback.azurewebsites.net/users/createAccount'
   // root1  : string = 'http://localhost:5144/users/createAccount'
-  root1 : string = "animalcrossingapi.azurewebsites.net/users/createAccount"
+  root1 : string = "https://animalcrossingapi.azurewebsites.net/users/createAccount"
   constructor(private http : HttpClient) { }
 
 
