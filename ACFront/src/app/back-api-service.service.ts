@@ -15,7 +15,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class BackApiServiceService {
 
-  apiRoot : string = 'http://localhost:5144';
+  // apiRoot : string = 'http://localhost:5144';
+  apiRoot : string = "animalcrossingapi.azurewebsites.net";
   apiRoot1 : string = 'https://apiback.azurewebsites.net/user-inventory/userId?userId=5';
   apiRoot2 : string = 'https://apiback.azurewebsites.net/login';
   username : string = "";
@@ -67,20 +68,20 @@ export class BackApiServiceService {
     let  wallet  =  parseInt(sessionStorage.getItem('wallet')!)
     sessionStorage.setItem('wallet', (wallet - sum).toString())
     // return this.http.post("https://apiback.azurewebsites.net/store/buy",misc) as Observable<any>;
-    return this.http.post("http://localhost:5144/store/buy",misc) as Observable<any>;
+    return this.http.post(this.apiRoot+"/store/buy",misc) as Observable<any>;
 
   }
 
   SellItem(sellinfo : Sellinfo) : Observable<any>{
     // return this.http.post("https://apiback.azurewebsites.net/store/sell",sellinfo) as Observable<any>;
-    return this.http.post("http://localhost:5144/store/sell",sellinfo) as Observable<any>;
+    return this.http.post(this.apiRoot+"/store/sell",sellinfo) as Observable<any>;
 }
   BuyRand(by_id : number) {
     
     let  wallet  =  parseInt(sessionStorage.getItem('wallet')!)
     sessionStorage.setItem('wallet', (wallet - 200).toString())
 
-    return this.http.post("http://localhost:5144/grabbag", by_id, {responseType: "text"}) as Observable<string>
+    return this.http.post(this.apiRoot+"/grabbag", by_id, {responseType: "text"}) as Observable<string>
 
   }
 
